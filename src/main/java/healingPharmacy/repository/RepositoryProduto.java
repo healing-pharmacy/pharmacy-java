@@ -2,11 +2,11 @@ package healingPharmacy.repository;
 
 import org.springframework.stereotype.Repository;
 
-import healingPharmacy.model.ModelCliente;
+import healingPharmacy.model.ModelProduto;
 
 @Repository
-public class RepositoryCliente {
-	public boolean validar(ModelCliente cliente) {
+public class RepositoryProduto {
+	public boolean validar(ModelProduto produto) {
 		return true;
 	}
 	
