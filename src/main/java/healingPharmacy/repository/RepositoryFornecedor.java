@@ -2,12 +2,12 @@ package healingPharmacy.repository;
 
 import org.springframework.stereotype.Repository;
 
-import healingPharmacy.model.ModelFornecedor;
+import healingPharmacy.model.Fornecedor;
 
 @Repository
 public class RepositoryFornecedor {
 
-	public boolean validar(ModelFornecedor fornecedor) {
+	public boolean validar(Fornecedor fornecedor) {
 		return true;
 	}
 	

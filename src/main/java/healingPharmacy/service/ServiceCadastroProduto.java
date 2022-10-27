@@ -3,7 +3,7 @@ package healingPharmacy.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import healingPharmacy.model.ModelProduto;
+import healingPharmacy.model.Produto;
 import healingPharmacy.repository.RepositoryProduto;
 
 
@@ -17,7 +17,7 @@ public class ServiceCadastroProduto {
 		this.repository = repository;
 	}
 	
-	public void salvarProduto (ModelProduto produto) {
+	public void salvarProduto (Produto produto) {
 		this.repository.validar(produto);
 		this.repository.persistir();
 	}

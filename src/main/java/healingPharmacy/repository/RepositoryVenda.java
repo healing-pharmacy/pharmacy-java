@@ -3,11 +3,11 @@ package healingPharmacy.repository;
 import org.springframework.stereotype.Repository;
 
 
-import healingPharmacy.model.ModelVenda;
+import healingPharmacy.model.Venda;
 
 @Repository
 public class RepositoryVenda {
-	public boolean validar(ModelVenda venda) {
+	public boolean validar(Venda venda) {
 		return true;
 	}
 	

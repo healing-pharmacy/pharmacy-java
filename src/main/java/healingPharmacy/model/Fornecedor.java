@@ -1,5 +1,5 @@
 package healingPharmacy.model;
 
-public class ModelCliente {
+public class Fornecedor {
 
 }

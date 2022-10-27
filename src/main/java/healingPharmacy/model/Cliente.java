@@ -1,5 +1,9 @@
 package healingPharmacy.model;
 
-public class ModelFornecedor {
+
+@enti
+public class Cliente {
+	
+	
 
 }

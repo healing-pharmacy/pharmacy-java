@@ -2,14 +2,14 @@ package healingPharmacy.repository;
 
 import org.springframework.stereotype.Repository;
 
-import healingPharmacy.model.ModelUsuario;
+import healingPharmacy.model.Usuario;
 
 
 
 @Repository
 public class RepositoryUsuario {
 		
-	public boolean validar(ModelUsuario usuario) {
+	public boolean validar(Usuario usuario) {
 		return true;
 	}
 	
