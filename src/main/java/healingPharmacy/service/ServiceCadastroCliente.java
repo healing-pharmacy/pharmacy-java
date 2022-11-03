@@ -15,9 +15,5 @@ public class ServiceCadastroCliente {
 	public ServiceCadastroCliente (RepositoryCliente repository) {
 		this.repository = repository;
 	}
-	
-	public void salvarcliente (Cliente cliente) {
-		this.repository.validar(cliente);
-		this.repository.persistir();
-	}
+
 }

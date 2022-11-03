@@ -5,13 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import healingPharmacy.model.Cliente;
 
-public class RepositoryCliente {
-	public boolean validar(Cliente cliente) {
-		return true;
-	}
-	
-	
-	public void persistir() {
-		
-	}
+@Repository
+public interface RepositoryCliente extends JpaRepository <Cliente, Integer>{
 }
