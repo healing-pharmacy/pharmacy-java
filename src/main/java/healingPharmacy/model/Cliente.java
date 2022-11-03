@@ -24,13 +24,13 @@ public class Cliente {
 	private String nome;
 	
 	@Column(nullable = false, length = 11)
-	private String CPF;
+	private String cpf;
 	
 	@Column
-	private LocalDate dataCadastro;
+	private LocalDate data_cadastro;
 
 	@Column
-	private Date dataNascimento;
+	private Date data_nascimento;
 
 	@Column(nullable = false, length = 150)
 	private String endereco;

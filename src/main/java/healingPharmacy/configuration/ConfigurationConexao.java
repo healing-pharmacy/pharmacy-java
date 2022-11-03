@@ -1,5 +1,5 @@
 package healingPharmacy.configuration;
 
-public class ConfigurationConexao {
 
+public class ConfigurationConexao {
 }

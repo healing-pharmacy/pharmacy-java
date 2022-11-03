@@ -15,7 +15,7 @@ public class Fornecedor {
     private String nome;
 
     @Column(nullable = false, length = 14)
-    private String CNPJ;
+    private String cnpj;
 
 
 }

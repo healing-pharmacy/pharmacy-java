@@ -16,9 +16,9 @@ public class Usuario {
     private String nome;
 
     @Column(nullable = false)
-    private Date dataNascimento;
+    private Date data_nascimento;
 
     @Column(nullable = false,length = 150)
-    private String CPF;
+    private String cpf;
 
 }
