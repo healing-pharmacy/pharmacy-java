@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealingPharmacyApplication {
 	
 	@Bean
-	public CommandLineRunner run(@Autowired RepositoryCliente repository){
+	public CommandLineRunner run( @Autowired RepositoryCliente repository){
 		return args -> {
-			Cliente cliente = Cliente.builder().cpf("12345678911").nome("Juliano").build();
-			repository.save(cliente);
+			Cliente cliente = Cliente.builder().cpf("12345678911").nome("Fulano").build();
 		};
 	}
 
