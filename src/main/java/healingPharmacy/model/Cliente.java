@@ -1,5 +1,6 @@
 package healingPharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -24,10 +25,12 @@ public class Cliente {
 	@Column(nullable = false, length = 11)
 	private String cpf;
 	
-	@Column
+	@Column(updatable = false)
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate data_cadastro;
 
 	@Column
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date data_nascimento;
 
 	@Column(nullable = true,length = 150)
