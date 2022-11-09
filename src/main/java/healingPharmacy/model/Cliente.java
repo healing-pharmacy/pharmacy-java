@@ -8,7 +8,8 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -29,10 +30,10 @@ public class Cliente {
 	@Column
 	private Date data_nascimento;
 
-	@Column(nullable = false, length = 150)
+	@Column(nullable = true,length = 150)
 	private String endereco;
 
-	@Column(nullable = false, length = 150)
+	@Column(nullable = true,length = 150)
 	private String email;
 
 	@PrePersist

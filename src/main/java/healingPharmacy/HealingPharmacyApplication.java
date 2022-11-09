@@ -13,12 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealingPharmacyApplication {
 	
-	@Bean
-	public CommandLineRunner run( @Autowired RepositoryCliente repository){
-		return args -> {
-			Cliente cliente = Cliente.builder().cpf("12345678911").nome("Fulano").build();
-		};
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(HealingPharmacyApplication.class, args);
