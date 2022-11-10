@@ -2,11 +2,14 @@ package healingPharmacy.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -20,9 +23,12 @@ public class Cliente {
 	private Integer Cli_id;
 	
 	@Column(nullable = false, length = 150)
+	@NotEmpty( message = "{campo.nome.obrigatorio}")
 	private String nome;
 	
 	@Column(nullable = false, length = 11)
+	@NotNull(message = "{campo.cpf.obrigatorio.}")
+	@CPF(message = "{campo.cpf.invalido}")
 	private String cpf;
 	
 	@Column(updatable = false)
