@@ -45,8 +45,17 @@ public class Cliente {
 	@Column(nullable = true,length = 150)
 	private String email;
 
+<<<<<<< Updated upstream
 	@PrePersist
 	public void prePersist(){
 		setData_cadastro(LocalDate.now());
 	}
+=======
+	@Column(name="userName", nullable=false, unique=true)
+	private String nomeUsuario;
+
+
+	@Column(name="password", nullable=false, unique=false)
+	private String senha;
+>>>>>>> Stashed changes
 }
