@@ -11,12 +11,12 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/clientes")
-public class clienteController {
+public class ClienteController {
 
     private final RepositoryCliente repository;
 
     @Autowired
-    public clienteController(RepositoryCliente repository){
+    public ClienteController(RepositoryCliente repository){
         this.repository = repository;
     }
 
