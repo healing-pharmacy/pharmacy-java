@@ -1,7 +1,7 @@
 package healingPharmacy.rest;
 
 import healingPharmacy.model.Produto;
-import healingPharmacy.repository.RespositoryProduto;
+import healingPharmacy.repository.RepositoryProduto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +12,10 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/produtos")
 public class ProdutoController {
-    private final RespositoryProduto repository;
+    private final RepositoryProduto repository;
 
     @Autowired
-    public ProdutoController(RespositoryProduto repository){
+    public ProdutoController(RepositoryProduto repository){
         this.repository = repository;
     }
 
