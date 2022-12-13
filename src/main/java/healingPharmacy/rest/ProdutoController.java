@@ -21,7 +21,7 @@ public class ProdutoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Produto salvar(@RequestBody @Valid Produto produto){
+    public Produto salvar(@RequestBody Produto produto){
         return repository.save(produto);
     }
 

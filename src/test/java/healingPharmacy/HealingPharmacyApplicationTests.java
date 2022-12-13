@@ -17,10 +17,4 @@ import static io.restassured.module.mockmvc.RestAssuredMockMvc.*;
 @SpringBootTest
 class HealingPharmacyApplicationTests {
 
-
-
-	@Test
-	public void deveRetornarSucesso(){
-	}
-
 }

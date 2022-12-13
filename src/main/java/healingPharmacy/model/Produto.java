@@ -1,11 +1,14 @@
 package healingPharmacy.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
