@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,6 +31,7 @@ public class Usuario {
     @Column(nullable = true)
     private Date data_nascimento;
 
+    @CPF
     @Column(nullable = true,length = 150)
     private String cpf;
 
