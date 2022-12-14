@@ -38,7 +38,7 @@ public class UsuarioController  {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<?> excluirUsuario(@PathVariable Integer id){
-        dao.deleteById(id);
+        usuarioService.excluirUsuario(id);
         return ResponseEntity.status(204).build();
     }
 
@@ -53,4 +53,5 @@ public class UsuarioController  {
                     return dao.save(usuario);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
     }
+
 }

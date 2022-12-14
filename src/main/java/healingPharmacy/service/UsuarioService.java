@@ -24,4 +24,20 @@ public class UsuarioService {
         Usuario usuarioNovo = repository.save(usuario);
         return usuarioNovo;
     }
+
+    public Usuario editarUsuario(Usuario usuario){
+        Usuario usuarioNovo = repository.save(usuario);
+        return usuarioNovo;
+    }
+
+    public Boolean excluirUsuario (Integer id){
+        repository.deleteById(id);
+        return true;
+    }
+
+//    public Boolean validarSenha(Usuario usuario) {
+//        String senha = repository.getById(usuario.getUsu_id()).getPassword();
+//        Boolean valid = repository.pass
+//        retrun valid;
+//    }
 }
