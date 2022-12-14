@@ -1,9 +1,7 @@
 package healingPharmacy.repository;
 
 import healingPharmacy.model.Produto;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public interface IProduto extends CrudRepository<Produto, Integer> {
+public interface IProduto extends JpaRepository<Produto, Integer> {
 }

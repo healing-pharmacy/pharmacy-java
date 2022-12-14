@@ -2,46 +2,44 @@ package healingPharmacy.rest;
 
 import healingPharmacy.model.Usuario;
 import healingPharmacy.repository.IUsuario;
+import healingPharmacy.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/usuarios")
 public class UsuarioController  {
-    //private final RepositoryUsuario repository;
 
     @Autowired
     private IUsuario dao;
 
+    private UsuarioService usuarioService;
+    public UsuarioController(UsuarioService usuarioService){
+        this.usuarioService = usuarioService;
+    }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario salvar(@RequestBody Usuario usuario){
-        Usuario usuarioNovo = dao.save(usuario);
-        return usuarioNovo;
+    public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario){
+        return ResponseEntity.status(201).body(usuarioService.criarUsuario(usuario));
     }
 
-    @GetMapping("{id}")
-    public Usuario acharPorId (@PathVariable Integer id ){
-        return dao
-                .findById(id)
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    @GetMapping()
+    public ResponseEntity<List<Usuario>> listaUsuarios(){
+        return ResponseEntity.status(200).body(usuarioService.listarUsuario());
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletar (@PathVariable Integer id){
-        dao
-                .findById(id)
-                .map( usuario -> {
-                    dao.delete(usuario);
-                    return Void.TYPE;                })
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
-
+    public ResponseEntity<?> excluirUsuario(@PathVariable Integer id){
+        dao.deleteById(id);
+        return ResponseEntity.status(204).build();
     }
 
     @PutMapping("{id}")

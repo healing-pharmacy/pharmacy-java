@@ -1,6 +1,7 @@
 package healingPharmacy.rest;
 
 import healingPharmacy.model.Fornecedor;
+
 import healingPharmacy.repository.IFornecedor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,24 +12,23 @@ import javax.validation.Valid;
 
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/fornecedor")
 public class FornecedorController {
-    private final IFornecedor repository;
 
     @Autowired
-    public FornecedorController(IFornecedor repository){
-        this.repository = repository;
-    }
+    private IFornecedor dao;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Fornecedor salvar(@RequestBody Fornecedor fornecedor){
-        return repository.save(fornecedor);
+    public Fornecedor salvar(@RequestBody Fornecedor fornecedor) {
+        Fornecedor fornecedorNovo = dao.save(fornecedor);
+        return fornecedorNovo;
     }
 
     @GetMapping("{id}")
     public Fornecedor acharPorId (@PathVariable Integer id ){
-        return repository
+        return dao
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
@@ -36,10 +36,10 @@ public class FornecedorController {
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar (@PathVariable Integer id){
-        repository
+        dao
                 .findById(id)
                 .map( fornecedor -> {
-                    repository.delete(fornecedor);
+                    dao.delete(fornecedor);
                     return Void.TYPE;                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Fornecedor não encontrado"));
 
@@ -48,11 +48,11 @@ public class FornecedorController {
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizar (@PathVariable Integer id, @RequestBody @Valid Fornecedor fornecedorAtualizado){
-        repository
+        dao
                 .findById(id)
                 .map( fornecedor -> {
                     fornecedorAtualizado.setForn_id(fornecedor.getForn_id());
-                    return repository.save(fornecedor);                })
+                    return dao.save(fornecedor);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Fornecedor não encontrado"));
     }
 }
