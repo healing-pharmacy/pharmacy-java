@@ -1,7 +1,7 @@
 package healingPharmacy.rest;
 
 import healingPharmacy.model.Venda;
-import healingPharmacy.repository.RepositoryVenda;
+import healingPharmacy.repository.IVenda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
