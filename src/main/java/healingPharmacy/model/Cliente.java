@@ -35,6 +35,9 @@ public class Cliente {
 	private LocalDate data_cadastro;
 
 	@Column
+	private String telefone;
+
+	@Column
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date data_nascimento;
 
