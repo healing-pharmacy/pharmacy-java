@@ -1,7 +1,7 @@
 package healingPharmacy;
 
 import healingPharmacy.model.Cliente;
-import healingPharmacy.repository.RepositoryCliente;
+import healingPharmacy.repository.ICliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

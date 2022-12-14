@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import healingPharmacy.model.Cliente;
 
-public interface IClientes extends CrudRepository<Cliente, Integer> {
+public interface ICliente extends CrudRepository<Cliente, Integer> {
 }
