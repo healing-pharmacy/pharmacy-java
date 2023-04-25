@@ -18,8 +18,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class Cliente {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer Cli_id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer cli_id;
 	
 	@Column(nullable = false, length = 150)
 	@NotEmpty( message = "{campo.nome.obrigatorio}")

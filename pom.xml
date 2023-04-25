@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>healingPharmacy</artifactId>
+	<artifactId>asilo-arkham-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>healingPharmacy</name>
-	<description>Site de controle de vendas.</description>
+	<name>asilo-arkham-java</name>
+	<description>Site de gestão de asilo.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
