@@ -1,8 +1,7 @@
 package healingPharmacy.rest;
 
-import healingPharmacy.model.Venda;
-import healingPharmacy.repository.IUsuario;
-import healingPharmacy.repository.IVenda;
+import healingPharmacy.model.Agenda;
+import healingPharmacy.repository.IAgenda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,18 +12,18 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/vendas")
-public class VendaController {
+public class AgendaController {
     @Autowired
-    private IVenda dao;
+    private IAgenda dao;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Venda salvar(@RequestBody Venda venda){
-        return dao.save(venda);
+    public Agenda salvar(@RequestBody Agenda agenda){
+        return dao.save(agenda);
     }
 
     @GetMapping("{id}")
-    public Venda acharPorId (@PathVariable Integer id ){
+    public Agenda acharPorId (@PathVariable Integer id ){
         return dao
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -35,8 +34,8 @@ public class VendaController {
     public void deletar (@PathVariable Integer id){
         dao
                 .findById(id)
-                .map( venda -> {
-                    dao.delete(venda);
+                .map(agenda -> {
+                    dao.delete(agenda);
                     return Void.TYPE;                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Venda não encontrada"));
 
@@ -44,12 +43,12 @@ public class VendaController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizar (@PathVariable Integer id, @RequestBody @Valid Venda  vendaAtualizado){
+    public void atualizar (@PathVariable Integer id, @RequestBody @Valid Agenda agendaAtualizado){
         dao
                 .findById(id)
-                .map( venda -> {
-                    vendaAtualizado.setVenda_id(venda.getVenda_id());
-                    return dao.save(venda);                })
+                .map(agenda -> {
+                    agendaAtualizado.setVenda_id(agenda.getVenda_id());
+                    return dao.save(agenda);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Venda não encontrada"));
     }
 }

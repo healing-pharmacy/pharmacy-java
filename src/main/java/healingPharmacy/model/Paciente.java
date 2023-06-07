@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Cliente {
+public class Paciente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer cli_id;
@@ -47,10 +47,15 @@ public class Cliente {
 	@Column(nullable = true,length = 150)
 	private String email;
 
+	@Column(nullable = true,length = 150)
+	private String nome_responsavel;
+
+	@Column
+	private String telefone_responsavel;
 
 	@PrePersist
 	public void prePersist(){
-		setData_cadastro(LocalDate.now());
+	setData_cadastro(LocalDate.now());
 	}
 
 

@@ -1,8 +1,7 @@
 package healingPharmacy;
 
-import healingPharmacy.model.Cliente;
-import healingPharmacy.repository.ICliente;
-import org.springframework.beans.factory.annotation.Autowired;
+import healingPharmacy.model.Paciente;
+import healingPharmacy.repository.IPaciente;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,4 +17,22 @@ public class HealingPharmacyApplication {
 		SpringApplication.run(HealingPharmacyApplication.class, args);
 	}
 
+	@Bean
+	CommandLineRunner initDatabase(IPaciente dao){
+		return args -> {
+			dao.deleteAll();
+
+			Paciente p = new Paciente();
+			p.setNome("Samuel");
+			p.setCpf("06343161171");
+			p.setEmail("samuelcostta2306@gmail.com");
+			p.setEndereco("Rua filsotro carneiro qd06 lt16");
+			p.setTelefone("62 98582-4804");
+			//p.setData_nascimento();
+			p.setNome_responsavel("Bernadeth Costa Pereira");
+			p.setTelefone_responsavel("62 98505-1639");
+
+			dao.save(p);
+		};
+	}
 }

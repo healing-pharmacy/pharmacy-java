@@ -1,8 +1,7 @@
 package healingPharmacy.rest;
 
-import healingPharmacy.model.Produto;
-import healingPharmacy.model.Usuario;
-import healingPharmacy.repository.IProduto;
+import healingPharmacy.model.Estoque;
+import healingPharmacy.repository.IEstoque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,20 +12,20 @@ import javax.validation.Valid;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/produtos")
-public class ProdutoController {
+public class EstoqueController {
 
     @Autowired
-    private IProduto dao;
+    private IEstoque dao;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Produto salvar(@RequestBody Produto produto) {
-        Produto produtoNovo = dao.save(produto);
-        return produtoNovo;
+    public Estoque salvar(@RequestBody Estoque estoque) {
+        Estoque estoqueNovo = dao.save(estoque);
+        return estoqueNovo;
     }
 
     @GetMapping("{id}")
-    public Produto acharPorId (@PathVariable Integer id ){
+    public Estoque acharPorId (@PathVariable Integer id ){
         return dao
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -37,8 +36,8 @@ public class ProdutoController {
     public void deletar (@PathVariable Integer id){
         dao
                 .findById(id)
-                .map( produto -> {
-                    dao.delete(produto);
+                .map(estoque -> {
+                    dao.delete(estoque);
                     return Void.TYPE;                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrado"));
 
@@ -46,12 +45,12 @@ public class ProdutoController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizar (@PathVariable Integer id, @RequestBody @Valid Produto produtoAtualizado){
+    public void atualizar (@PathVariable Integer id, @RequestBody @Valid Estoque estoqueAtualizado){
         dao
                 .findById(id)
-                .map( produto -> {
-                    produtoAtualizado.setProd_id(produto.getProd_id());
-                    return dao.save(produto);                })
+                .map(estoque -> {
+                    estoqueAtualizado.setProd_id(estoque.getProd_id());
+                    return dao.save(estoque);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrado"));
     }
 }

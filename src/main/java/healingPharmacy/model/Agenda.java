@@ -12,9 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Venda {
+public class Agenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer venda_id;
+
 
 }

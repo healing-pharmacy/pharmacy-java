@@ -17,22 +17,13 @@ import java.util.Date;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer usu_id;
+    private Integer id;
 
     @Column(name = "username",nullable = true,length = 150)
-    private String username;
+    private String user;
 
-    @Column(name = "email",nullable = true, length = 150)
-    private String email;
 
     @Column(name = "password", nullable = true)
     private String password;
-
-    @Column(nullable = true)
-    private Date data_nascimento;
-
-    @CPF
-    @Column(nullable = true,length = 150)
-    private String cpf;
 
 }
