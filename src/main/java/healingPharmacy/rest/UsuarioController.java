@@ -49,7 +49,7 @@ public class UsuarioController  {
         dao
                 .findById(id)
                 .map( usuario -> {
-                    usuarioAtualizado.setUsu_id(usuario.getUsu_id());
+                    usuarioAtualizado.setId(usuario.getId());
                     return dao.save(usuario);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
     }

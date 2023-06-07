@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="asilo-arkham-java" />
         <module name="healingPharmacy" />
+        <module name="pharmacy-java" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="asilo-arkham-java" options="-parameters" />
       <module name="healingPharmacy" options="-parameters" />
+      <module name="pharmacy-java" options="-parameters" />
     </option>
   </component>
 </project>

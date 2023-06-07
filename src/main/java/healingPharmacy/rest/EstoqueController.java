@@ -1,7 +1,7 @@
 package healingPharmacy.rest;
 
-import healingPharmacy.model.Cliente;
-import healingPharmacy.repository.ICliente;
+import healingPharmacy.model.Paciente;
+import healingPharmacy.repository.IPaciente;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,21 +13,21 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/clientes")
+@RequestMapping("/api/pacientes")
 @AllArgsConstructor
-public class ClienteController {
+public class EstoqueController {
 
-    private final ICliente dao;
+    private final IPaciente dao;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cliente salvar(@RequestBody Cliente cliente){
-        Cliente clienteNovo = dao.save(cliente);
+    public Paciente salvar(@RequestBody Paciente cliente){
+        Paciente clienteNovo = dao.save(cliente);
         return clienteNovo;
     }
 
     @GetMapping("{id}")
-    public Cliente acharPorId ( @PathVariable Integer id ){
+    public Paciente acharPorId ( @PathVariable Integer id ){
         return dao
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -47,7 +47,7 @@ public class ClienteController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizar (@PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado){
+    public void atualizar (@PathVariable Integer id, @RequestBody @Valid Paciente clienteAtualizado){
         dao
                 .findById(id)
                 .map( cliente -> {
@@ -57,7 +57,7 @@ public class ClienteController {
     }
 
     @GetMapping
-    public List<Cliente> list() {
+    public List<Paciente> list() {
         return dao.findAll();
     }
 }
