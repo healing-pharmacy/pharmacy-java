@@ -49,7 +49,7 @@ public class PacienteController {
         dao
                 .findById(id)
                 .map(paciente -> {
-                    pacienteAtualizado.setCli_id(paciente.getCli_id());
+                    pacienteAtualizado.setPaciente_id(paciente.getPaciente_id());
                     return dao.save(paciente);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado"));
     }

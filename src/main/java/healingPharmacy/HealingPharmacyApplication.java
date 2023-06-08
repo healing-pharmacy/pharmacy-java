@@ -23,14 +23,12 @@ public class HealingPharmacyApplication {
 			dao.deleteAll();
 
 			Paciente p = new Paciente();
-			p.setNome("Samuel");
+			p.setNome_paciente("Samuel");
 			p.setCpf("06343161171");
 			p.setEmail("samuelcostta2306@gmail.com");
 			p.setEndereco("Rua filsotro carneiro qd06 lt16");
 			p.setTelefone("62 98582-4804");
 			//p.setData_nascimento();
-			p.setNome_responsavel("Bernadeth Costa Pereira");
-			p.setTelefone_responsavel("62 98505-1639");
 
 			dao.save(p);
 		};

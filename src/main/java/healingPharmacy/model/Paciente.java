@@ -19,11 +19,11 @@ import javax.validation.constraints.NotNull;
 public class Paciente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer cli_id;
+	private Integer paciente_id;
 	
 	@Column(nullable = false, length = 150)
 	@NotEmpty( message = "{campo.nome.obrigatorio}")
-	private String nome;
+	private String nome_paciente;
 	
 	@Column(nullable = false, length = 11)
 	@NotNull(message = "{campo.cpf.obrigatorio.}")
@@ -46,12 +46,6 @@ public class Paciente {
 
 	@Column(nullable = true,length = 150)
 	private String email;
-
-	@Column(nullable = true,length = 150)
-	private String nome_responsavel;
-
-	@Column
-	private String telefone_responsavel;
 
 	@PrePersist
 	public void prePersist(){

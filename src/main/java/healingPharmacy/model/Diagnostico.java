@@ -6,28 +6,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Calendar;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Agenda {
+public class Diagnostico {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer agenda_id;
+    private Integer diagnostico_id;
 
     @Column
-    @Temporal(TemporalType.DATE)
-    private Calendar hora;
+    private String nome_diagnostico;
 
     @Column
-    private Integer dia;
+    private Boolean paleativo;
 
-    @Column
-    private Integer mes;
+    @Column(length = 250)
+    private String obs;
 
-    @Column
-    private Integer ano;
 }

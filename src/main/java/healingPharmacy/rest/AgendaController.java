@@ -11,7 +11,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/api/vendas")
+@RequestMapping("/api/agenda")
 public class AgendaController {
     @Autowired
     private IAgenda dao;
@@ -47,7 +47,7 @@ public class AgendaController {
         dao
                 .findById(id)
                 .map(agenda -> {
-                    agendaAtualizado.setVenda_id(agenda.getVenda_id());
+                    agendaAtualizado.setAgenda_id(agenda.getAgenda_id());
                     return dao.save(agenda);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Venda não encontrada"));
     }
