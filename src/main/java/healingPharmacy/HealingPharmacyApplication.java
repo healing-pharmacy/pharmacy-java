@@ -30,7 +30,16 @@ public class HealingPharmacyApplication {
 			p.setTelefone("62 98582-4804");
 			//p.setData_nascimento();
 
+			Paciente f = new Paciente();
+			f.setNome_paciente("Maria");
+			f.setCpf("06343161171");
+			f.setEmail("mariasilva@gmail.com");
+			f.setEndereco("Rua das couves qd06 lt16");
+			f.setTelefone("62 91231-9843");
+			//p.setData_nascimento();
+
 			dao.save(p);
+			dao.save(f);
 		};
 	}
 }

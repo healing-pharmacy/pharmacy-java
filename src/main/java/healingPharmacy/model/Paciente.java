@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 public class Paciente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer paciente_id;
+	private Integer id_paciente;
 	
 	@Column(nullable = false, length = 150)
 	@NotEmpty( message = "{campo.nome.obrigatorio}")
