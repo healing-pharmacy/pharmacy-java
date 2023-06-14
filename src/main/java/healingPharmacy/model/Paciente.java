@@ -38,7 +38,7 @@ public class Paciente {
 	private String telefone;
 
 	@Column
-	@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date data_nascimento;
 
 	@Column(nullable = true,length = 150)

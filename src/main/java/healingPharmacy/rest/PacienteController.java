@@ -20,18 +20,19 @@ public class PacienteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Paciente salvar(@RequestBody Paciente paciente){
-        Paciente pacienteNovo = dao.save(paciente);
-        return pacienteNovo;
+        System.out.println(paciente.getNome_paciente());
+        return dao.save(paciente);
+        //return pacienteNovo;
     }
 
-    @GetMapping("{id}")
+    /*@GetMapping("{id}")
     public Paciente acharPorId (@PathVariable Integer id ){
         return dao
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
+    }*/
 
-    @DeleteMapping("{id}")
+    /*@DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar (@PathVariable Integer id){
         dao
@@ -41,9 +42,9 @@ public class PacienteController {
                     return Void.TYPE;                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado"));
 
-    }
+    }*/
 
-    @PutMapping("{id}")
+    /*@PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizar (@PathVariable Integer id, @RequestBody @Valid Paciente pacienteAtualizado){
         dao
@@ -52,9 +53,9 @@ public class PacienteController {
                     pacienteAtualizado.setId_paciente(paciente.getId_paciente());
                     return dao.save(paciente);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado"));
-    }
+    }*/
 
-    @GetMapping("/all")
+    @GetMapping()
     public List<Paciente> list(){
         return dao.findAll();
     }
