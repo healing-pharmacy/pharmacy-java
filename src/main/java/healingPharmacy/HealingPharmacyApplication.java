@@ -1,6 +1,8 @@
 package healingPharmacy;
 
+import healingPharmacy.model.Agenda;
 import healingPharmacy.model.Paciente;
+import healingPharmacy.repository.IAgenda;
 import healingPharmacy.repository.IPaciente;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +20,7 @@ public class HealingPharmacyApplication {
 	}
 
 	@Bean
-	CommandLineRunner initDatabase(IPaciente dao){
+	CommandLineRunner initDatabase(IPaciente dao, IAgenda agendaRepository){
 		return args -> {
 			dao.deleteAll();
 
@@ -38,8 +40,27 @@ public class HealingPharmacyApplication {
 			f.setTelefone("62 91231-9843");
 			//p.setData_nascimento();
 
+			Agenda g = new Agenda();
+			g.setResponsavel("Samuel");
+			g.setTarefa("Dar banho no moises");
+			g.setConcluido(false);
+			g.setAno(2023);
+			g.setDia(23);
+			g.setMes(06);
+
+			Agenda h = new Agenda();
+			h.setResponsavel("Carlos");
+			h.setTarefa("Dar 1mg de cloroquina ao Gustavo");
+			h.setConcluido(false);
+			h.setAno(2023);
+			h.setDia(23);
+			h.setMes(06);
+
+			agendaRepository.save(h);
+			agendaRepository.save(g);
 			dao.save(p);
 			dao.save(f);
+
 		};
 	}
 }

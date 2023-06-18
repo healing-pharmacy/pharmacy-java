@@ -1,6 +1,7 @@
 package healingPharmacy.rest;
 
 import healingPharmacy.model.Agenda;
+import healingPharmacy.model.Paciente;
 import healingPharmacy.repository.IAgenda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,34 +9,34 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/agenda")
+@CrossOrigin("*")
+@RequestMapping("/api/agendas")
 public class AgendaController {
     @Autowired
-    private IAgenda dao;
+    private IAgenda agendaRepository;
 
-    @PostMapping
+    /*@PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Agenda salvar(@RequestBody Agenda agenda){
-        return dao.save(agenda);
+        return agendaRepository.save(agenda);
+    }*/
+
+    @GetMapping()
+    public List<Agenda> list(){
+        return agendaRepository.findAll();
     }
 
-    @GetMapping("{id}")
-    public Agenda acharPorId (@PathVariable Integer id ){
-        return dao
-                .findById(id)
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
-    @DeleteMapping("{id}")
+    /*@DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar (@PathVariable Integer id){
-        dao
+        agendaRepository
                 .findById(id)
                 .map(agenda -> {
-                    dao.delete(agenda);
+                    agendaRepository.delete(agenda);
                     return Void.TYPE;                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Venda não encontrada"));
 
@@ -44,11 +45,11 @@ public class AgendaController {
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizar (@PathVariable Integer id, @RequestBody @Valid Agenda agendaAtualizado){
-        dao
+        agendaRepository
                 .findById(id)
                 .map(agenda -> {
                     agendaAtualizado.setAgenda_id(agenda.getAgenda_id());
-                    return dao.save(agenda);                })
+                    return agendaRepository.save(agenda);                })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Venda não encontrada"));
-    }
+    }*/
 }

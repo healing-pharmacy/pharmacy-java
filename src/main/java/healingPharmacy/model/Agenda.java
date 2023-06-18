@@ -30,4 +30,14 @@ public class Agenda {
 
     @Column
     private Integer ano;
+
+    @Column
+    private String responsavel;
+
+    @Column
+    private Boolean concluido;
+
+    @Column
+    private String tarefa;
+
 }
