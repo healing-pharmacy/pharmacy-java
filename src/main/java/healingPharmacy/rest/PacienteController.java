@@ -21,7 +21,6 @@ public class PacienteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Paciente salvar(@RequestBody Paciente paciente){
-        //System.out.println(paciente.getNome_paciente());
         return dao.save(paciente);
     }
 
@@ -30,9 +29,6 @@ public class PacienteController {
         return dao.findById(id_paciente)
                 .map(record -> ResponseEntity.ok().body(record))
                 .orElse(ResponseEntity.notFound().build());
-
-                //.findById(id)
-                //.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @PutMapping("/{id_paciente}")
@@ -49,12 +45,6 @@ public class PacienteController {
                     return ResponseEntity.ok().body(atualizado);
                 })
                 .orElse(ResponseEntity.notFound().build());
-
-                /*.findById(id_paciente)
-                .map(paciente -> {
-                    pacienteAtualizado.setId_paciente(paciente.getId_paciente());
-                    return dao.save(paciente);                })
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado"));*/
     }
 
     @DeleteMapping("/{id_paciente}")
@@ -65,13 +55,6 @@ public class PacienteController {
                     return ResponseEntity.noContent().<Void>build();
                 })
                 .orElse(ResponseEntity.notFound().build());
-
-                /*.findById(id_paciente)
-                .map(paciente -> {
-                    dao.delete(paciente);
-                    return Void.TYPE;                })
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado"));*/
-
     }
 
     @GetMapping()

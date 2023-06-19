@@ -40,4 +40,9 @@ public class Agenda {
     @Column
     private String tarefa;
 
+    @Column
+    private String nome_paciente;
+
+
+
 }
