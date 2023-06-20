@@ -44,57 +44,57 @@ public class HealingPharmacyApplication {
 
 			Agenda g = new Agenda();
 			g.setResponsavel("Samuel");
-			g.setTarefa("Dar banho no moises");
+			g.setTarefa("Auxiliar no banho");
 			g.setConcluido(false);
 			g.setAno(2023);
 			g.setDia(23);
 			g.setMes(06);
-			g.setNome_paciente("Roberto nunes");
+			g.setNome_paciente("Roberto Nunes");
 
 			Agenda h = new Agenda();
-			h.setResponsavel("Carlos");
+			h.setResponsavel("Carlos Alberto");
 			h.setTarefa("Dar 1mg de cloroquina ao Gustavo");
 			h.setConcluido(false);
 			h.setAno(2023);
 			h.setDia(23);
 			h.setMes(06);
-			h.setNome_paciente("Roberto nunes");
+			h.setNome_paciente("Danubio Costa");
 
 			Agenda j = new Agenda();
-			j.setResponsavel("Carlos");
-			j.setTarefa("Dar 1mg de cloroquina ao Gustavo");
+			j.setResponsavel("Maria Clara");
+			j.setTarefa("Dar 1mg de dorflex");
 			j.setConcluido(false);
 			j.setAno(2023);
 			j.setDia(23);
 			j.setMes(06);
-			j.setNome_paciente("Roberto nunes");
+			j.setNome_paciente("Gustavo Henrique");
 
 			Agenda k = new Agenda();
-			k.setResponsavel("Carlos");
-			k.setTarefa("Dar 1mg de cloroquina ao Gustavo");
+			k.setResponsavel("Virginia");
+			k.setTarefa("Tocar a fralda");
 			k.setConcluido(false);
 			k.setAno(2023);
 			k.setDia(23);
 			k.setMes(06);
-			k.setNome_paciente("Roberto nunes");
+			k.setNome_paciente("Dagoberto Dolores");
 
 			Agenda l = new Agenda();
-			l.setResponsavel("Carlos");
-			l.setTarefa("Dar 1mg de cloroquina ao Gustavo");
+			l.setResponsavel("Jade");
+			l.setTarefa("Aplicar insulina");
 			l.setConcluido(false);
 			l.setAno(2023);
 			l.setDia(23);
 			l.setMes(06);
-			l.setNome_paciente("Roberto nunes");
+			l.setNome_paciente("Jackson Michael");
 
 			Agenda m = new Agenda();
-			m.setResponsavel("Carlos");
-			m.setTarefa("Dar 1mg de cloroquina ao Gustavo");
+			m.setResponsavel("Fred");
+			m.setTarefa("Auxiliar no almoço");
 			m.setConcluido(false);
 			m.setAno(2023);
 			m.setDia(23);
 			m.setMes(06);
-			m.setNome_paciente("Roberto nunes");
+			m.setNome_paciente("Roberto Henrique");
 
 			Funcionario q = new Funcionario();
 			q.setNome_funcionario("Samuel");
@@ -102,17 +102,18 @@ public class HealingPharmacyApplication {
 			q.setEndereco("Rua filsotro carneiro qd06 lt16");
 			q.setTelefone("62 98582-4804");
 
+
 			Funcionario t = new Funcionario();
-			t.setNome_funcionario("Samuel");
+			t.setNome_funcionario("Jade");
 			t.setCpf("06343161171");
-			t.setEndereco("Rua filsotro carneiro qd06 lt16");
-			t.setTelefone("62 98582-4804");
+			t.setEndereco("Rua das dores qd.06 lt.18");
+			t.setTelefone("62 98578-4603");
 
 			Funcionario u = new Funcionario();
-			u.setNome_funcionario("Samuel");
+			u.setNome_funcionario("Virginia");
 			u.setCpf("06343161171");
-			u.setEndereco("Rua filsotro carneiro qd06 lt16");
-			u.setTelefone("62 98582-4804");
+			u.setEndereco("Rua das couves qd.18 lt.18");
+			u.setTelefone("62 99756 9012");
 
 			agendaRepository.save(m);
 			agendaRepository.save(j);

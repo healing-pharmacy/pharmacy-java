@@ -41,7 +41,7 @@ public class AgendaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{id_paciente}")
+    @PutMapping("/{agenda_id}")
     public ResponseEntity<Agenda> atualizar (@PathVariable Integer agenda_id, @RequestBody Agenda agenda){
         return agendaRepository.findById(agenda_id)
                 .map(recordFound -> {
