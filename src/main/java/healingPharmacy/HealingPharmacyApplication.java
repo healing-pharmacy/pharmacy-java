@@ -1,8 +1,10 @@
 package healingPharmacy;
 
 import healingPharmacy.model.Agenda;
+import healingPharmacy.model.Funcionario;
 import healingPharmacy.model.Paciente;
 import healingPharmacy.repository.IAgenda;
+import healingPharmacy.repository.IFuncionario;
 import healingPharmacy.repository.IPaciente;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +22,7 @@ public class HealingPharmacyApplication {
 	}
 
 	@Bean
-	CommandLineRunner initDatabase(IPaciente dao, IAgenda agendaRepository){
+	CommandLineRunner initDatabase(IPaciente dao, IAgenda agendaRepository, IFuncionario dao2){
 		return args -> {
 			dao.deleteAll();
 
@@ -94,6 +96,24 @@ public class HealingPharmacyApplication {
 			m.setMes(06);
 			m.setNome_paciente("Roberto nunes");
 
+			Funcionario q = new Funcionario();
+			q.setNome_funcionario("Samuel");
+			q.setCpf("06343161171");
+			q.setEndereco("Rua filsotro carneiro qd06 lt16");
+			q.setTelefone("62 98582-4804");
+
+			Funcionario t = new Funcionario();
+			t.setNome_funcionario("Samuel");
+			t.setCpf("06343161171");
+			t.setEndereco("Rua filsotro carneiro qd06 lt16");
+			t.setTelefone("62 98582-4804");
+
+			Funcionario u = new Funcionario();
+			u.setNome_funcionario("Samuel");
+			u.setCpf("06343161171");
+			u.setEndereco("Rua filsotro carneiro qd06 lt16");
+			u.setTelefone("62 98582-4804");
+
 			agendaRepository.save(m);
 			agendaRepository.save(j);
 			agendaRepository.save(k);
@@ -102,7 +122,9 @@ public class HealingPharmacyApplication {
 			agendaRepository.save(g);
 			dao.save(p);
 			dao.save(f);
-
+			dao2.save(q);
+			dao2.save(t);
+			dao2.save(u);
 		};
 	}
 }
